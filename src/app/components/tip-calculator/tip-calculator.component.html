@@ -5,7 +5,7 @@
   </div>
   <input type="number"
          #amount
-         (keyup)="updateAmount(amount.value)"
+         (keyup)="updateAmount(amount.valueAsNumber)"
          class="form-control">
 </div>
 <div class="btn-group"
@@ -35,3 +35,6 @@
   <li class="list-group-item">Amount of Tip: {{ amountOfTip | currency }}</li>
   <li class="list-group-item">Total to be Paid: {{ totalToBePaid | currency }} </li>
 </ul>
+<button class="btn btn-success"
+        [disabled]="saved"
+        (click)="addMeal()">Save Meal In History</button>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TipService } from 'src/app/services/tip.service';
+import { MealModel } from 'src/app/models';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  mealHistory: MealModel[] = [];
+  constructor(private service: TipService) { }
 
   ngOnInit(): void {
+    this.mealHistory = this.service.getMeals();
   }
 
 }
